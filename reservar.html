@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Reservar mesa · Fredy Puerto Madero</title>
+  <meta name="description" content="Reservá tu mesa en Fredy, Puerto Madero. Te confirmamos por WhatsApp." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#171512" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Reservar mesa · Fredy Puerto Madero" />
+  <meta property="og:description" content="Tu mesa frente al río." />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/arranque.js"></script>
+</head>
+<body data-pagina="reservar">
+  <a class="saltar" href="#contenido" data-i18n="a11y.saltar">Saltar al contenido</a>
+  <div id="lugar-cabecera"></div>
+
+  <main id="contenido" tabindex="-1">
+    <section class="pagehero">
+      <div class="wrap pagehero-in">
+        <p class="k k-oro reveal"><i></i><span data-i18n="res.kicker">Tu mesa frente al río</span></p>
+        <h1 class="h2n reveal d1" data-i18n="res.t">Reservar mesa</h1>
+        <p class="sub reveal d1" data-i18n="res.s">Elegí el día y te confirmamos por WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="bloque b-marfil">
+      <div class="wrap angosto">
+        <form class="hoja reveal" id="form-reserva" novalidate>
+          <div class="campos-2">
+            <div class="campo">
+              <label for="fecha" data-i18n="res.fecha">Fecha</label>
+              <input id="fecha" name="fecha" type="date" required aria-describedby="fecha-e" />
+              <p class="campo-error" id="fecha-e" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="hora" data-i18n="res.turno">Horario</label>
+              <select id="hora" name="hora" required aria-describedby="hora-e"></select>
+              <p class="campo-error" id="hora-e" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="personas" data-i18n="res.personas">Personas</label>
+              <select id="personas" name="personas" required aria-describedby="personas-e"></select>
+              <p class="campo-error" id="personas-e" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="zona"><span data-i18n="res.zona">Zona preferida</span> <small data-i18n="form.opcional">Opcional</small></label>
+              <select id="zona" name="zona"></select>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="nombre" data-i18n="res.nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" maxlength="80" required aria-describedby="nombre-e" />
+            <p class="campo-error" id="nombre-e" hidden></p>
+          </div>
+          <div class="campo">
+            <label for="nota"><span data-i18n="res.nota">Nota</span> <small data-i18n="form.opcional">Opcional</small></label>
+            <textarea id="nota" name="nota" rows="3" maxlength="300" aria-describedby="nota-h"></textarea>
+            <p class="campo-ayuda" id="nota-h" data-i18n="res.nota.h">Contanos si es una ocasión especial.</p>
+          </div>
+          <p class="aviso" data-i18n="res.aviso">La reserva queda pendiente hasta que te confirmemos por WhatsApp.</p>
+          <button class="pill p-red bloque-btn" type="submit"><span data-i18n="res.enviar">Enviar reserva por WhatsApp</span><span class="ar" data-icono="flecha"></span></button>
+        </form>
+
+        <div class="hoja hoja-ok" id="reserva-ok" hidden>
+          <h2 class="ok-t" tabindex="-1" data-i18n="res.ok.t">Tu reserva está lista para enviar</h2>
+          <p class="lead" data-i18n="res.ok.p">Abrimos WhatsApp con tu mensaje armado. Envialo y te confirmamos la mesa.</p>
+          <a class="pill p-red" id="reserva-reabrir" target="_blank" rel="noopener"><span data-i18n="res.ok.abrir">Abrir WhatsApp de nuevo</span><span class="ar" data-icono="flecha"></span></a>
+          <button class="lk boton-lk" id="reserva-otra" type="button"><span data-i18n="res.ok.otra">Hacer otra reserva</span></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lugar-pie"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/reservar.js"></script>
+</body>
+</html>

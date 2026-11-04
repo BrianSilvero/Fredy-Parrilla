@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Noches de show · Fredy Puerto Madero</title>
+  <meta name="description" content="Cena show en vivo frente al río: tango, folclore, melódicos, cumbia y cuarteto en Fredy, Puerto Madero." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#171512" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Noches de show · Fredy Puerto Madero" />
+  <meta property="og:description" content="Cena show en vivo, frente al río." />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/arranque.js"></script>
+</head>
+<body data-pagina="noches">
+  <a class="saltar" href="#contenido" data-i18n="a11y.saltar">Saltar al contenido</a>
+  <div id="lugar-cabecera"></div>
+
+  <main id="contenido" tabindex="-1">
+    <section class="pagehero">
+      <div class="wrap pagehero-in">
+        <p class="k k-oro reveal"><i></i><span data-i18n="noc.kicker">Música en vivo</span></p>
+        <h1 class="h2n reveal d1" data-i18n="noc.t">Noches de show</h1>
+        <p class="sub reveal d1" data-i18n="noc.s">Cena show en vivo, frente al río.</p>
+      </div>
+    </section>
+
+    <section class="bloque b-carbon b-pegado">
+      <div class="wrap dos dk">
+        <div class="columna reveal">
+          <p class="lead" data-i18n="noc.p">Solistas y dúos en vivo mientras cenás frente al río. Ideal para festejar en grupo.</p>
+          <div class="evs">
+            <div class="ev"><span data-icono="calendario"></span><span data-i18n="show.dias">Jueves, viernes, sábados y vísperas de feriado</span></div>
+            <div class="ev"><span data-icono="luna"></span><span data-i18n="show.hora">Desde las 22 h</span></div>
+            <div class="ev"><span data-icono="copa"></span><span data-i18n="show.menu">Menú show: entrada, principal, postre y bebida</span></div>
+          </div>
+          <div class="gchips">
+            <span class="gchip" data-i18n="genero.tango">Tango</span><span class="gchip" data-i18n="genero.folclore">Folclore</span><span class="gchip" data-i18n="genero.melodicos">Melódicos</span><span class="gchip" data-i18n="genero.cumbia">Cumbia</span><span class="gchip" data-i18n="genero.cuarteto">Cuarteto</span>
+          </div>
+          <p class="nota-oro" data-i18n="show.nota">Precio del menú y adicional por show (si corresponde), informados antes de reservar.</p>
+        </div>
+        <div class="doble-foto reveal d1">
+          <div class="ph doble-a"><span><span data-i18n="intro.foto">Foto provisoria</span><br /><span data-i18n="foto.show">Show en el salón</span></span></div>
+          <div class="ph doble-b"><span><span data-i18n="intro.foto">Foto provisoria</span><br /><span data-i18n="foto.publico">Público festejando</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque b-marfil">
+      <div class="wrap pila">
+        <div class="sh reveal"><h2 class="h2n" data-i18n="noc.proximas">Próximas noches</h2><p class="sub" data-i18n="noc.proximasS">Elegí una fecha y reservá tu mesa.</p></div>
+        <ul class="noches reveal d1" id="noches-lista"></ul>
+      </div>
+    </section>
+
+    <section class="bloque b-beige">
+      <div class="wrap">
+        <div class="ficha reveal">
+          <div class="sh"><h2 class="h2n h2-ficha" data-i18n="noc.ev.t">Festejá en Fredy</h2></div>
+          <p class="ficha-texto" data-i18n="noc.ev.p">Cumpleaños, aniversarios, despedidas y empresas. Salón, terraza, DJ y barra de tragos.</p>
+          <div class="ficha-botones">
+            <a class="pill p-red" id="noches-evento" target="_blank" rel="noopener"><span data-i18n="noc.ev.b">Consultá por tu evento</span><span class="ar" data-icono="flecha"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lugar-pie"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/noches.js"></script>
+</body>
+</html>

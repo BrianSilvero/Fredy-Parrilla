@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Fredy · Parrilla argentina en Puerto Madero</title>
+  <meta name="description" content="Parrilla argentina sobre la costanera de Puerto Madero. Cortes a la brasa, vista a los docks y noches de show en vivo." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#171512" />
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="Fredy · Parrilla argentina en Puerto Madero" />
+  <meta property="og:description" content="Cortes a la brasa, vista a los docks y noches de show en vivo." />
+  <meta property="og:locale" content="es_AR" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Fredy Parrilla Restaurant","servesCuisine":["Parrilla argentina","Argentina"],"telephone":"+5491125278442","priceRange":"$$$","address":{"@type":"PostalAddress","streetAddress":"Av. Alicia Moreau de Justo 1798","addressLocality":"Puerto Madero","addressRegion":"CABA","addressCountry":"AR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"10:00","closes":"02:00"}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/arranque.js" data-inicio></script>
+</head>
+<body data-pagina="inicio">
+  <a class="saltar" href="#contenido" data-i18n="a11y.saltar">Saltar al contenido</a>
+  <div id="lugar-cabecera"></div>
+
+  <main id="contenido" tabindex="-1">
+    <section class="hero">
+      <span class="tagp hero-tag" data-i18n="intro.foto">Foto provisoria</span>
+      <div class="wrap hero-in">
+        <div class="hero-txt">
+          <p class="k k-oro reveal"><i></i><span data-i18n="hero.kicker">Bienvenidos · Puerto Madero</span></p>
+          <h1 class="hero-t reveal d1"><span data-i18n="hero.l1">Fuego, río</span><br /><span data-i18n="hero.l2a">y</span> <em data-i18n="hero.l2b">música.</em></h1>
+          <p class="hero-p reveal d2" data-i18n="hero.texto">Parrilla argentina sobre la costanera de Puerto Madero. Cortes a la brasa, vista a los docks y noches de show en vivo.</p>
+          <div class="reveal d3"><a class="pill p-gold hero-btn" href="carta.html"><span data-i18n="hero.boton">Ver la carta</span><span class="ar" data-icono="flecha"></span></a></div>
+        </div>
+        <div class="hero-foto reveal d2">
+          <div class="ph ph-marco">
+            <span><span data-i18n="intro.foto">Foto provisoria</span><br /><span data-i18n="foto.salon">Salón con vista al río</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque b-marfil">
+      <div class="wrap dos">
+        <div class="historia-foto reveal">
+          <div class="ph ph-oscuro"><span><span data-i18n="intro.foto">Foto provisoria</span><br /><span data-i18n="foto.fundadores">Foto histórica o fundadores</span></span></div>
+          <div class="sello"><span class="sello-k" data-i18n="home.desde">Desde</span><span class="sello-n">2010</span></div>
+        </div>
+        <div class="columna reveal d1">
+          <div class="sh"><h2 class="h2n" data-i18n="home.historia.t">Nuestra historia</h2><p class="sub" data-i18n="home.historia.s">Una parrilla clásica, frente al río.</p></div>
+          <p class="lead" data-i18n="home.historia.p">Fredy es una parrilla tradicional sobre la costanera de Puerto Madero: sencilla, familiar y con el río de fondo. Abrimos en 2010 y venimos de una cadena de carnicerías familiar de varias generaciones.</p>
+          <a class="pill p-ghost-d" href="historia.html"><span data-i18n="home.historia.b">Conocer la historia</span><span class="ar ar-dark" data-icono="flecha"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque b-beige" id="carta">
+      <div class="wrap pila">
+        <div class="cabeza-fila reveal">
+          <div class="sh"><h2 class="h2n" data-i18n="home.carta.t">La carta</h2><p class="sub" data-i18n="home.carta.s">Del fuego a tu mesa.</p></div>
+        </div>
+        <!-- Vitrina: un plato grande al centro y los vecinos asomando. El plato del centro lleva a la carta. -->
+        <div class="vitrina reveal d1" id="carrusel" role="region" aria-roledescription="carrusel" aria-label="Platos destacados">
+          <div class="vitrina-pista" id="carrusel-pista"></div>
+          <button class="cb vitrina-flecha vitrina-ant" id="carrusel-ant" type="button" data-icono="flechaIzq"></button>
+          <button class="cb vitrina-flecha vitrina-sig" id="carrusel-sig" type="button" data-icono="flechaDer"></button>
+          <!-- El botón de pausa se ubica por JS dentro del plato activo, junto a "Ver en la carta". -->
+          <button class="cb vitrina-pausa" id="carrusel-pausa" type="button"></button>
+          <p class="sr" id="carrusel-anuncio" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque b-carbon">
+      <div class="wrap dos dk">
+        <div class="columna reveal">
+          <div class="sh"><h2 class="h2n" data-i18n="home.show.t">Noches de show</h2><p class="sub" data-i18n="home.show.s">Cena show en vivo, frente al río.</p></div>
+          <p class="lead" data-i18n="home.show.p">Solistas y dúos en vivo mientras cenás frente al río. Ideal para festejar en grupo.</p>
+          <div class="evs">
+            <div class="ev"><span data-icono="calendario"></span><span data-i18n="show.dias">Jueves, viernes, sábados y vísperas de feriado</span></div>
+            <div class="ev"><span data-icono="luna"></span><span data-i18n="show.hora">Desde las 22 h</span></div>
+            <div class="ev"><span data-icono="copa"></span><span data-i18n="show.menu">Menú show: entrada, principal, postre y bebida</span></div>
+          </div>
+          <div class="gchips">
+            <span class="gchip" data-i18n="genero.tango">Tango</span><span class="gchip" data-i18n="genero.folclore">Folclore</span><span class="gchip" data-i18n="genero.melodicos">Melódicos</span><span class="gchip" data-i18n="genero.cumbia">Cumbia</span><span class="gchip" data-i18n="genero.cuarteto">Cuarteto</span>
+          </div>
+          <p class="nota-oro" data-i18n="show.nota">Precio del menú y adicional por show (si corresponde), informados antes de reservar.</p>
+          <a class="pill p-ghost" href="noches-de-show.html"><span data-i18n="home.show.b">Ver las noches de show</span><span class="ar" data-icono="flecha"></span></a>
+        </div>
+        <div class="doble-foto reveal d1">
+          <div class="ph doble-a"><span><span data-i18n="intro.foto">Foto provisoria</span><br /><span data-i18n="foto.show">Show en el salón</span></span></div>
+          <div class="ph doble-b"><span><span data-i18n="intro.foto">Foto provisoria</span><br /><span data-i18n="foto.publico">Público festejando</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque b-marfil" data-i18n-aria="home.mas.aria" aria-label="Mediodía, pedidos y eventos">
+      <div class="wrap pila">
+        <div class="sh reveal"><h2 class="h2n" data-i18n="home.mas.t">Más de Fredy</h2><p class="sub" data-i18n="home.mas.s">Mediodía, pedidos y eventos.</p></div>
+        <div class="cards">
+          <article class="card reveal">
+            <span class="ic" data-icono="sol"></span>
+            <p class="k" data-i18n="home.mas.k1">Mediodía</p>
+            <h3 data-i18n="home.mas.t1">Promo ejecutiva</h3>
+            <p class="card-p" data-i18n="home.mas.p1">Mini parrillada o bife de chorizo, con guarnición, bebida y postre.</p>
+          </article>
+          <article class="card card-bordo reveal d1">
+            <span class="ic" data-icono="bolsaFuego"></span>
+            <p class="k" data-i18n="home.mas.k2">Pedí online</p>
+            <h3 data-i18n="home.mas.t2">Fredy para llevar</h3>
+            <p class="card-p" data-i18n="home.mas.p2">Armá tu pedido y retiralo en el local. Lo enviás por WhatsApp y ahí te confirmamos el total y cómo pagar.</p>
+          </article>
+          <article class="card reveal d2">
+            <span class="ic" data-icono="brindis"></span>
+            <p class="k" data-i18n="home.mas.k3">Eventos</p>
+            <h3 data-i18n="home.mas.t3">Festejá en Fredy</h3>
+            <p class="card-p" data-i18n="home.mas.p3">Cumpleaños, aniversarios, despedidas y empresas. Salón, terraza, DJ y barra de tragos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque b-carbon">
+      <div class="wrap dos dk opiniones">
+        <div class="columna reveal">
+          <div class="sh"><h2 class="h2n" data-i18n="home.op.t">Opiniones</h2><p class="sub" data-i18n="home.op.s">Lo que dicen de Fredy.</p></div>
+          <p class="lead" data-i18n="home.op.p">¿Ya nos visitaste? Tu opinión nos ayuda a mejorar y a que otros nos conozcan.</p>
+          <a class="pill p-gold" data-enlace="ficha" target="_blank" rel="noopener"><span data-i18n="home.op.b">Dejanos tu reseña</span><span class="ar" data-icono="flecha"></span></a>
+          <a class="lk lk-oro" data-enlace="ficha" target="_blank" rel="noopener"><span data-i18n="home.op.l">Ver todas en Google</span><i data-icono="flecha"></i></a>
+        </div>
+        <div class="foto-sola reveal d1"><div class="ph"><span><span data-i18n="intro.foto">Foto provisoria</span><br /><span data-i18n="foto.mesa">Mesa frente al río</span></span></div></div>
+      </div>
+    </section>
+
+    <section class="bloque b-beige">
+      <div class="wrap">
+        <div class="ficha reveal">
+          <div class="sh"><h2 class="h2n h2-ficha" data-i18n="home.con.t">Contacto</h2><p class="sub sub-ficha" data-i18n="home.con.s">Te esperamos frente al río.</p></div>
+          <div class="ficha-datos">
+            <span class="ficha-dato"><i data-icono="ubicacion"></i><span><span data-dato="direccion">Av. Alicia Moreau de Justo 1798</span>, Puerto Madero</span></span>
+            <span class="ficha-dato"><i data-icono="reloj"></i><span data-i18n="con.horario">Todos los días, de 10:00 a 02:00 hs</span></span>
+          </div>
+          <div class="ficha-botones">
+            <a class="pill p-red" data-enlace="llegar" target="_blank" rel="noopener"><span data-i18n="con.llegar">Cómo llegar</span><span class="ar" data-icono="flecha"></span></a>
+            <a class="pill p-ghost-d solo-movil" data-enlace="whatsapp" target="_blank" rel="noopener"><span data-i18n="con.whatsapp">WhatsApp</span><span class="ar ar-dark" data-icono="flecha"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lugar-pie"></div>
+
+  <!-- Intro: solo la primera visita. Logo → idioma → espátulas → Inicio. -->
+  <div class="intro" id="intro" data-etapa="carga">
+    <div class="intro-carga" aria-hidden="true">
+      <div class="logo-aro">
+        <svg class="aro" width="172" height="172" viewBox="0 0 172 172" focusable="false"><circle cx="86" cy="86" r="83" /></svg>
+        <img src="img/logo.png" alt="" width="136" height="136" />
+      </div>
+    </div>
+
+    <div class="idioma">
+      <section class="idioma-foto">
+        <div class="idioma-marca">
+          <img src="img/logo.png" alt="Fredy Puerto Madero" width="88" height="88" />
+          <span class="idioma-lema" data-i18n="intro.lema">Parrilla frente al río</span>
+        </div>
+        <span class="tagp idioma-tag" data-i18n="intro.foto">Foto provisoria</span>
+        <div class="idioma-txt">
+          <p class="k k-oro"><i></i><span data-i18n="intro.bienvenidos">Bienvenidos</span></p>
+          <p class="idioma-t" data-i18n="intro.titulo">Fuego, río y música.</p>
+          <p class="idioma-b" data-i18n="intro.bajada">Una experiencia argentina frente al río.</p>
+        </div>
+      </section>
+
+      <section class="idioma-panel">
+        <form class="idioma-form" id="form-idioma">
+          <p class="idioma-paso" data-i18n="intro.paso">01 — Idioma</p>
+          <h1 class="idioma-h" id="titulo-idioma" tabindex="-1" data-i18n="intro.elegi">Elegí tu idioma</h1>
+          <p class="idioma-ayuda" data-i18n="intro.ayuda">Seleccioná el idioma en el que preferís recorrer la carta y la web.</p>
+          <div class="opciones" id="opciones-idioma" role="radiogroup" aria-labelledby="titulo-idioma"></div>
+          <button class="continuar" type="submit"><span data-i18n="intro.continuar">Continuar</span><i data-icono="flecha"></i></button>
+          <p class="idioma-nota" id="intro-sugerido"></p>
+          <p class="idioma-pie"><span data-i18n="intro.pie1">Fredy Parrilla Restaurant</span><i></i><span><span data-i18n="intro.pie2">Puerto Madero</span><span class="pie-ba"> · Buenos Aires</span></span></p>
+        </form>
+      </section>
+    </div>
+
+    <div class="intro-salida" role="status">
+      <span class="sr" data-i18n="intro.cargando">Cargando</span>
+      <div class="parrillero" aria-hidden="true">
+        <span class="esp esp-izq" data-icono="espatula"></span>
+        <img src="img/logo.png" alt="" width="136" height="136" />
+        <span class="esp esp-der" data-icono="espatula"></span>
+      </div>
+      <span class="barra-carga" aria-hidden="true"><i></i></span>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>La carta · Fredy Puerto Madero</title>
+  <meta name="description" content="La carta de Fredy: parrilla, achuras, pastas artesanales, cocina especial, postres y bodega." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#171512" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="La carta · Fredy Puerto Madero" />
+  <meta property="og:description" content="Parrilla, achuras, pastas artesanales, postres y bodega." />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/arranque.js"></script>
+</head>
+<body data-pagina="carta">
+  <a class="saltar" href="#contenido" data-i18n="a11y.saltar">Saltar al contenido</a>
+  <div id="lugar-cabecera"></div>
+
+  <main id="contenido" tabindex="-1">
+    <section class="pagehero">
+      <div class="wrap pagehero-in">
+        <p class="k k-oro reveal"><i></i><span data-i18n="carta.kicker">Puerto Madero</span></p>
+        <h1 class="h2n reveal d1" data-i18n="carta.t">La carta</h1>
+        <p class="sub reveal d1" data-i18n="carta.s">Del fuego a tu mesa.</p>
+        <p class="pagehero-p reveal d2" data-i18n="carta.p">Tocá un plato para ver el detalle o el + para sumarlo a tu pedido para retirar. Si comés en el salón, se lo pedís al mozo.</p>
+      </div>
+    </section>
+
+    <nav class="carta-chips" id="carta-chips" aria-label="Categorías de la carta"></nav>
+
+    <div class="carta-fondo">
+      <div class="wrap carta-cuerpo" id="carta-cuerpo"></div>
+      <div class="wrap carta-notas">
+        <p class="carta-cubierto" id="carta-cubierto"></p>
+        <p data-i18n="carta.nota">Los precios están en pesos argentinos. Si tenés alguna alergia, avisanos antes de pedir.</p>
+      </div>
+    </div>
+  </main>
+
+  <a class="carta-acceso" id="carta-acceso" href="pedir.html" hidden>
+    <!-- Solo la bolsa y el número a la vista; la frase queda para lectores de pantalla. -->
+    <i data-icono="bolsa"></i>
+    <span class="carta-acceso-n" data-acceso-n>0</span>
+    <span class="sr" data-i18n="carta.verPedido">Ver mi pedido</span>
+  </a>
+
+  <div id="lugar-pie"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/carta.js"></script>
+</body>
+</html>

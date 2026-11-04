@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Contacto · Fredy Puerto Madero</title>
+  <meta name="description" content="Dirección, horarios, WhatsApp y cómo llegar a Fredy, en Av. Alicia Moreau de Justo 1798, Puerto Madero." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#171512" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contacto · Fredy Puerto Madero" />
+  <meta property="og:description" content="Te esperamos frente al río." />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/arranque.js"></script>
+</head>
+<body data-pagina="contacto">
+  <a class="saltar" href="#contenido" data-i18n="a11y.saltar">Saltar al contenido</a>
+  <div id="lugar-cabecera"></div>
+
+  <main id="contenido" tabindex="-1">
+    <section class="pagehero">
+      <div class="wrap pagehero-in">
+        <p class="k k-oro reveal"><i></i><span data-i18n="con.kicker">Puerto Madero</span></p>
+        <h1 class="h2n reveal d1" data-i18n="con.t">Contacto</h1>
+        <p class="sub reveal d1" data-i18n="con.s">Te esperamos frente al río.</p>
+      </div>
+    </section>
+
+    <section class="bloque b-marfil">
+      <div class="wrap contacto-grid">
+        <div class="columna reveal">
+          <div class="acciones">
+            <a class="pill p-red" data-enlace="llegar" target="_blank" rel="noopener"><span data-i18n="con.llegar">Cómo llegar</span><span class="ar" data-icono="flecha"></span></a>
+            <a class="pill p-ghost-d" data-enlace="whatsapp" target="_blank" rel="noopener"><span data-i18n="con.escribir">WhatsApp</span><span class="ar ar-dark" data-icono="flecha"></span></a>
+            <a class="pill p-ghost-d" data-enlace="telefono"><span data-i18n="con.llamar">Llamar</span><span class="ar ar-dark" data-icono="flecha"></span></a>
+          </div>
+          <div class="infos">
+            <div class="inf"><i data-icono="ubicacion"></i><div><b data-i18n="con.direccion">Dirección</b><span data-dato="direccion">Av. Alicia Moreau de Justo 1798</span><br /><span data-dato="barrio">Puerto Madero, CABA</span></div></div>
+            <div class="inf" id="horarios"><i data-icono="reloj"></i><div><b data-i18n="con.horarios">Horarios</b><span data-i18n="con.horario">Todos los días, de 10:00 a 02:00 hs</span></div></div>
+            <div class="inf"><i data-icono="telefono"></i><div><b data-i18n="con.telefono">Teléfono y WhatsApp</b><span data-dato="whatsappTexto">+54 9 11 2527-8442</span></div></div>
+            <div class="inf"><i data-icono="huella"></i><div><b data-i18n="con.local">El local</b><span class="locales"><span data-i18n="con.pet">Pet friendly</span> · <span data-i18n="con.accesible">Accesible</span></span></div></div>
+          </div>
+          <a class="pill p-ghost-d" id="contacto-evento" target="_blank" rel="noopener"><span data-i18n="con.evento">Consultá por tu evento</span><span class="ar ar-dark" data-icono="flecha"></span></a>
+        </div>
+        <div class="mapa reveal d1">
+          <iframe id="mapa" title="Mapa de Fredy en Puerto Madero" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque b-beige">
+      <div class="wrap pila angosto">
+        <div class="sh reveal"><h2 class="h2n" data-i18n="con.faq">Preguntas frecuentes</h2></div>
+        <div class="faqs reveal d1" id="faq"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lugar-pie"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/contacto.js"></script>
+</body>
+</html>
