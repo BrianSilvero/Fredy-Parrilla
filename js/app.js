@@ -89,7 +89,8 @@ function iniciarCarrusel() {
   const DURACION_PLATO = 6000;
   const DURACION_FINAL = 9000;
 
-  const platos = ORDEN_DESTACADOS.map((nombre) => PLATOS.find((p) => p.nombre === nombre)).filter(Boolean);
+  /* "Nuestros platos": fotos reales, sin precio. Cada tarjeta lleva a la carta general. */
+  const platos = NUESTROS_PLATOS;
   const pista = raiz.querySelector('#carrusel-pista');
   const pausa = raiz.querySelector('#carrusel-pausa');
   const anterior = raiz.querySelector('#carrusel-ant');
@@ -103,14 +104,13 @@ function iniciarCarrusel() {
   let slides = [];
 
   const categoria = (p) => {
-    const nombre = tr(CATEGORIAS.find((c) => c.id === p.categoria).nombre);
-    return p.peso ? `${nombre} · ${p.peso}` : nombre;
+    const c = CATEGORIAS.find((x) => x.id === p.cat);
+    return c ? tr(c.corto || c.nombre) : '';
   };
 
-  /* Foto real si el plato la tiene; si no, el marco provisorio con degradé. */
-  const foto = (p, i) => (p.foto
-    ? h('span', { class: 'vslide-foto con-foto' }, h('img', { src: p.foto, alt: '', loading: 'lazy', decoding: 'async' }))
-    : h('span', { class: `ph vslide-foto s${i % 5}` }, h('span', {}, `${t('intro.foto')} · ${p.nombreCorto}`)));
+  /* Foto real del plato. */
+  const foto = (p) => h('span', { class: 'vslide-foto con-foto' },
+    h('img', { src: p.foto, alt: tr(p.nombre), loading: 'lazy', decoding: 'async' }));
 
   /* Cada tarjeta: el enlace "Ver …" cubre toda la superficie (::after), así se puede tocar en
      cualquier lado, y el botón de pausa puede ir al lado sin quedar dentro de un enlace. */
@@ -167,7 +167,7 @@ function iniciarCarrusel() {
     /* Solo se anuncia cuando lo pidió la persona: el giro automático no interrumpe. */
     if (porPersona) {
       const p = platos[actual];
-      anuncio.textContent = p ? `${p.nombreCorto}, ${precioPlato(p)}. ${tr(p.descripcion)}` : t('home.carta.b');
+      anuncio.textContent = p ? `${tr(p.nombre)}. ${tr(p.desc)}` : t('home.carta.b');
     }
   }
 
@@ -184,14 +184,13 @@ function iniciarCarrusel() {
 
     slides = [
       ...platos.map((p, i) => tarjeta({
-        fotoEl: foto(p, i), cat: categoria(p), nombre: p.nombreCorto, desc: tr(p.descripcion), precio: precioPlato(p),
-        href: `${PAGINAS.carta}#plato-${p.id}`, textoVer: t('home.carta.verPlato'),
-        etiqueta: t('home.carta.irPlato', { nombre: p.nombreCorto }),
+        clase: 'vslide-plato', fotoEl: foto(p), cat: categoria(p), nombre: tr(p.nombre), desc: tr(p.desc),
+        href: PAGINAS.carta, textoVer: t('home.platos.ver'), etiqueta: t('home.platos.ver'),
       }, i)),
-      /* Tarjeta final: invita a recorrer la carta completa. */
+      /* Tarjeta final: la bodega de Fredy e invitación a recorrer la carta completa. */
       tarjeta({
-        clase: 'vslide-final', fotoEl: h('span', { class: 'ph vslide-foto vslide-foto-final' }),
-        cat: t('home.carta.t'), nombre: t('home.carta.cta', { n: disponibles }), desc: resumen,
+        clase: 'vslide-final vslide-plato', fotoEl: foto({ foto: 'img/galeria/bodega.jpg', nombre: { es: t('foto.bodega') } }),
+        cat: t('home.carta.t'), nombre: t('home.platos.finT'), desc: resumen,
         href: PAGINAS.carta, textoVer: t('home.carta.b'), etiqueta: t('home.carta.b'),
       }, platos.length),
     ];

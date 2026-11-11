@@ -259,6 +259,46 @@ const PLATOS = [
 /* Orden del carrusel del Inicio, como en el prototipo aprobado. */
 const ORDEN_DESTACADOS = ['Bife de Chorizo (400 gr)', 'Asado de Tira Banderita', 'Picaña', 'Mollejitas al verdeo', 'Provoleta Fredy'];
 
+/* "Nuestros platos" del Inicio: fotos reales que mandó Fredy, sin precio.
+   El nombre describe lo que se ve en la foto; si Fredy lo corrige, se cambia acá. */
+const NUESTROS_PLATOS = [
+  {
+    foto: 'img/platos/bife-reduccion.jpg', cat: 'parrilla',
+    nombre: tx('Corte a la parrilla con reducción', 'Grilled cut with reduction', 'Corte na grelha com redução', 'Pièce grillée et sa réduction'),
+    desc: tx('Marcado a la brasa y servido con un toque de reducción.', 'Seared over the embers and served with a touch of reduction.', 'Marcado na brasa e servido com um toque de redução.', 'Saisie sur la braise et servie avec une touche de réduction.'),
+  },
+  {
+    foto: 'img/platos/bife-papas.jpg', cat: 'parrilla',
+    nombre: tx('Bife con papas fritas', 'Steak with french fries', 'Bife com batatas fritas', 'Steak et frites'),
+    desc: tx('Un clásico de la parrilla, con papas fritas al costado.', 'A grill classic, with french fries on the side.', 'Um clássico da parrilla, com batatas fritas.', 'Un classique de la grillade, avec des frites.'),
+  },
+  {
+    foto: 'img/platos/bife-grillado.jpg', cat: 'parrilla',
+    nombre: tx('Bife grillado con salsa', 'Grilled steak with sauce', 'Bife grelhado com molho', 'Steak grillé et sa sauce'),
+    desc: tx('Con hojas verdes y tiras de morrón.', 'With greens and strips of red pepper.', 'Com folhas verdes e tiras de pimentão.', 'Avec de la salade et des lanières de poivron.'),
+  },
+  {
+    foto: 'img/platos/ensalada-peras.jpg', cat: 'ensaladas',
+    nombre: tx('Ensalada de rúcula, peras grilladas y queso azul', 'Arugula salad with grilled pears and blue cheese', 'Salada de rúcula, peras grelhadas e queijo azul', 'Salade de roquette, poires grillées et bleu'),
+    desc: tx('Con tomates cherry.', 'With cherry tomatoes.', 'Com tomates-cereja.', 'Avec des tomates cerises.'),
+  },
+  {
+    foto: 'img/platos/ensalada-cesar.jpg', cat: 'ensaladas',
+    nombre: tx('Ensalada César', 'Caesar salad', 'Salada Caesar', 'Salade César'),
+    desc: tx('Pollo grillado, croutons, queso en hebras y aderezo.', 'Grilled chicken, croutons, shaved cheese and dressing.', 'Frango grelhado, croutons, queijo ralado e molho.', 'Poulet grillé, croûtons, copeaux de fromage et sauce.'),
+  },
+  {
+    foto: 'img/platos/volcan-chocolate.jpg', cat: 'postres',
+    nombre: tx('Volcán de chocolate con helado', 'Chocolate lava cake with ice cream', 'Vulcão de chocolate com sorvete', 'Moelleux au chocolat et glace'),
+    desc: tx('Con helado de crema y caramelo hilado.', 'With vanilla ice cream and spun caramel.', 'Com sorvete de creme e caramelo fiado.', 'Avec glace vanille et caramel filé.'),
+  },
+  {
+    foto: 'img/platos/flan.jpg', cat: 'postres',
+    nombre: tx('Flan con dulce de leche', 'Flan with dulce de leche', 'Pudim com doce de leite', 'Flan au dulce de leche'),
+    desc: tx('El postre de siempre, con caramelo.', 'The classic dessert, with caramel.', 'A sobremesa de sempre, com caramelo.', 'Le dessert de toujours, au caramel.'),
+  },
+];
+
 const FAQ = [
   {
     q: tx('¿Qué horario tienen?', 'What are your opening hours?', 'Qual é o horário?', 'Quels sont vos horaires ?'),

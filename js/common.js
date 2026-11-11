@@ -59,6 +59,7 @@ const tr = (obj, lang = idiomaActual) => (obj ? obj[lang] ?? obj.es ?? '' : '');
 function aplicarTextos(raiz = document) {
   raiz.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
   raiz.querySelectorAll('[data-i18n-aria]').forEach((el) => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
+  raiz.querySelectorAll('[data-i18n-alt]').forEach((el) => el.setAttribute('alt', t(el.dataset.i18nAlt)));
 }
 
 function cambiarIdioma(id, { guardar = true } = {}) {
@@ -180,9 +181,11 @@ function enlaceTexto(pagina, clave, extras = {}, antes = null) {
     antes, h('span', { 'data-i18n': clave }, t(clave)));
 }
 
-function crearSelectorIdioma() {
-  const lugar = h('div', { class: 'lang' });
-  const boton = h('button', { class: 'lbtn', type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' });
+/* Selector de idioma con lista desplegable. En celular (compacto) el botón muestra solo la bandera,
+   pero despliega la misma lista: se cambia el idioma sin salir de la página. */
+function crearSelectorIdioma({ compacto = false } = {}) {
+  const lugar = h('div', { class: compacto ? 'lang-movil' : 'lang' });
+  const boton = h('button', { class: compacto ? 'lflag' : 'lbtn', type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' });
   const lista = h('ul', { class: 'lmenu', hidden: true });
 
   const cerrar = (devolverFoco = false) => {
@@ -194,7 +197,9 @@ function crearSelectorIdioma() {
   const pintar = () => {
     const actual = IDIOMAS.find((i) => i.id === idioma());
     boton.setAttribute('aria-label', t('a11y.idioma', { nombre: actual.nombre }));
-    boton.replaceChildren(bandera(actual.bandera), actual.id.toUpperCase(), icono('chevron'));
+    boton.replaceChildren(...(compacto
+      ? [bandera(actual.bandera, 28, 19)]
+      : [bandera(actual.bandera), actual.id.toUpperCase(), icono('chevron')]));
     lista.replaceChildren(...IDIOMAS.map((i) => h('li', {},
       h('button', {
         class: `lopt${i.id === actual.id ? ' on' : ''}`, type: 'button', lang: i.id,
@@ -217,17 +222,9 @@ function crearSelectorIdioma() {
   return lugar;
 }
 
+/* En celular la bandera despliega la lista de idiomas (antes llevaba a la pantalla completa de idioma). */
 function crearBotonIdiomaMovil() {
-  const volver = encodeURIComponent(location.pathname.split('/').pop() || PAGINAS.inicio);
-  const enlace = h('a', { class: 'lflag', href: `${PAGINAS.inicio}?idioma&volver=${volver}` });
-  const pintar = () => {
-    const actual = IDIOMAS.find((i) => i.id === idioma());
-    enlace.setAttribute('aria-label', t('a11y.idioma', { nombre: actual.nombre }));
-    enlace.replaceChildren(bandera(actual.bandera, 28, 19));
-  };
-  document.addEventListener('fredy:idioma', pintar);
-  pintar();
-  return enlace;
+  return crearSelectorIdioma({ compacto: true });
 }
 
 function contadorPedido(extra = '') {

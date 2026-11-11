@@ -27,19 +27,18 @@
   <div id="lugar-cabecera"></div>
 
   <main id="contenido" tabindex="-1">
-    <section class="hero">
-      <span class="tagp hero-tag" data-i18n="intro.foto">Foto provisoria</span>
+    <section class="hero hero-con-foto">
       <div class="wrap hero-in">
         <div class="hero-txt">
           <p class="k k-oro reveal"><i></i><span data-i18n="hero.kicker">Bienvenidos · Puerto Madero</span></p>
           <h1 class="hero-t reveal d1"><span data-i18n="hero.l1">Fuego, río</span><br /><span data-i18n="hero.l2a">y</span> <em data-i18n="hero.l2b">música.</em></h1>
           <p class="hero-p reveal d2" data-i18n="hero.texto">Parrilla argentina sobre la costanera de Puerto Madero. Cortes a la brasa, vista a los docks y noches de show en vivo.</p>
-          <div class="reveal d3"><a class="pill p-gold hero-btn" href="carta.html"><span data-i18n="hero.boton">Ver la carta</span><span class="ar" data-icono="flecha"></span></a></div>
         </div>
         <div class="hero-foto reveal d2">
-          <div class="ph ph-marco">
-            <span><span data-i18n="intro.foto">Foto provisoria</span><br /><span data-i18n="foto.salon">Salón con vista al río</span></span>
-          </div>
+          <!-- Polaroid: marco blanco con la foto del salón, apenas inclinado. -->
+          <figure class="polaroid">
+            <img src="img/galeria/salon.jpg" width="1100" height="828" alt="Salón de Fredy con mesas listas para cenar" data-i18n-alt="foto.salonFredy" decoding="async" />
+          </figure>
         </div>
       </div>
     </section>
@@ -47,7 +46,7 @@
     <section class="bloque b-marfil">
       <div class="wrap dos">
         <div class="historia-foto reveal">
-          <div class="ph ph-oscuro"><span><span data-i18n="intro.foto">Foto provisoria</span><br /><span data-i18n="foto.fundadores">Foto histórica o fundadores</span></span></div>
+          <div class="ph ph-oscuro ph-foto"><img src="img/galeria/historia.jpg" width="1100" height="825" alt="Frente de Fredy de noche, con el salón lleno" data-i18n-alt="foto.frenteNoche" loading="lazy" decoding="async" /></div>
           <div class="sello"><span class="sello-k" data-i18n="home.desde">Desde</span><span class="sello-n">2010</span></div>
         </div>
         <div class="columna reveal d1">
@@ -61,7 +60,7 @@
     <section class="bloque b-beige" id="carta">
       <div class="wrap pila">
         <div class="cabeza-fila reveal">
-          <div class="sh"><h2 class="h2n" data-i18n="home.carta.t">La carta</h2><p class="sub" data-i18n="home.carta.s">Del fuego a tu mesa.</p></div>
+          <div class="sh"><h2 class="h2n" data-i18n="home.platos.t">Nuestros platos</h2><p class="sub" data-i18n="home.carta.s">Del fuego a tu mesa.</p></div>
         </div>
         <!-- Vitrina: un plato grande al centro y los vecinos asomando. El plato del centro lleva a la carta. -->
         <div class="vitrina reveal d1" id="carrusel" role="region" aria-roledescription="carrusel" aria-label="Platos destacados">
@@ -132,7 +131,7 @@
           <a class="pill p-gold" data-enlace="ficha" target="_blank" rel="noopener"><span data-i18n="home.op.b">Dejanos tu reseña</span><span class="ar" data-icono="flecha"></span></a>
           <a class="lk lk-oro" data-enlace="ficha" target="_blank" rel="noopener"><span data-i18n="home.op.l">Ver todas en Google</span><i data-icono="flecha"></i></a>
         </div>
-        <div class="foto-sola reveal d1"><div class="ph"><span><span data-i18n="intro.foto">Foto provisoria</span><br /><span data-i18n="foto.mesa">Mesa frente al río</span></span></div></div>
+        <div class="foto-sola reveal d1"><div class="ph ph-foto"><img src="img/galeria/mesa-vino.jpg" width="934" height="1000" alt="Ensalada, pan y vino en el salón de Fredy" style="object-position: center 75%" data-i18n-alt="foto.mesaVino" loading="lazy" decoding="async" /></div></div>
       </div>
     </section>
 

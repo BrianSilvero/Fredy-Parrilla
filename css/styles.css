@@ -174,7 +174,9 @@ i { font-style: normal; }
   display: flex; align-items: center; justify-content: center; flex: none;
   width: 44px; height: 44px; transition: transform 160ms var(--ease-out);
 }
-.lflag { border: 1px solid #4A4036; border-radius: var(--radio); }
+.lflag { padding: 0; border: 1px solid #4A4036; border-radius: var(--radio); background: transparent; }
+/* Selector compacto de celular: misma lista desplegable que en computadora. */
+.lang-movil { position: relative; flex: none; }
 .llamar { background: var(--verde); color: var(--blanco); border-radius: 50%; }
 .lflag:active, .llamar:active { transform: scale(0.95); }
 .flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); flex: none; }
@@ -354,6 +356,22 @@ i { font-style: normal; }
 .hero-foto { display: none; }
 .hero-btn { width: 100%; justify-content: center; padding: 0 26px; background: rgba(255, 255, 255, 0.04); color: var(--blanco); border: 1px solid rgba(243, 236, 224, 0.55); }
 .hero-btn .ar { display: none; }
+/* Fondo real: el exterior de Fredy de noche, oscurecido para que el texto se lea. */
+.hero.hero-con-foto {
+  background: linear-gradient(0deg, rgba(14, 10, 7, 0.96) 0%, rgba(14, 10, 7, 0.62) 55%, rgba(14, 10, 7, 0.4) 100%),
+    url('../img/galeria/exterior.jpg') center 40% / cover no-repeat, #0E0A07;
+}
+/* Polaroid: marco blanco con más borde abajo, apenas inclinado. */
+.polaroid {
+  width: min(100%, 440px); margin: 0; padding: 14px 14px 62px;
+  background: #FBF8F2; border-radius: 3px; transform: rotate(2.5deg);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+.polaroid img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 0.94; object-fit: cover; object-position: 62% center; background: #1A1410; }
+
+/* Foto real dentro de un marco .ph: ocupa todo el marco, encima del degradé. */
+.ph-foto { padding: 0; }
+.ph-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- Historia ---------- */
 .historia-foto { position: relative; min-height: 340px; }
@@ -386,7 +404,8 @@ i { font-style: normal; }
 .vslide.activa:active { transform: scale(0.985); transition-duration: 140ms; }
 
 .vslide-foto { position: absolute; inset: 0; z-index: -1; align-items: flex-start; padding-top: 64px; }
-.vslide-foto.con-foto img { width: 100%; height: 100%; object-fit: cover; }
+.vslide-foto.con-foto { padding: 0; }
+.vslide-foto.con-foto img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .vslide-foto.s1::before { background: radial-gradient(ellipse at 30% 40%, rgba(224, 89, 42, 0.45), transparent 60%), linear-gradient(160deg, #2A1A10, #0E0A07); }
 .vslide-foto.s2::before { background: radial-gradient(ellipse at 70% 55%, rgba(224, 89, 42, 0.5), transparent 58%), linear-gradient(200deg, #2A1A10, #0E0A07); }
 .vslide-foto.s3::before { background: radial-gradient(ellipse at 45% 25%, rgba(170, 60, 20, 0.55), transparent 62%), linear-gradient(140deg, #2A1A10, #0E0A07); }
@@ -866,24 +885,35 @@ html.cajon-abierto .wa-flota { right: calc(32px + var(--ancho-scroll, 0px)); }
 @keyframes logo-entra { from { opacity: 0; transform: scale(0.94); filter: blur(4px); } }
 @keyframes aro-traza { to { stroke-dashoffset: 0; } }
 
-.parrillero { display: flex; align-items: center; gap: 16px; }
-.parrillero img { width: 112px; height: 112px; }
-.esp { display: block; transform-origin: 50% 90%; opacity: 0; }
-.espatula { width: 34px; height: auto; }
-.intro[data-etapa='salida'] .esp-izq { animation: esp-izq 1250ms var(--ease-out) both; }
-.intro[data-etapa='salida'] .esp-der { animation: esp-der 1250ms var(--ease-out) both; }
+/* Espátulas detrás del logo, como los cubiertos del cartel: una a cada lado, inclinadas hacia
+   afuera; la paleta asoma arriba y la punta del mango abajo. Todo es proporcional al logo. */
+.parrillero {
+  --logo: 112px; --esp-ancho: calc(var(--logo) * 0.41); --esp-corrido: calc(var(--logo) * 0.45); --esp-giro: 20deg;
+  position: relative; width: var(--logo); height: var(--logo);
+}
+.parrillero img { position: relative; z-index: 1; display: block; width: var(--logo); height: var(--logo); }
+.esp {
+  position: absolute; left: calc(50% - var(--esp-ancho) / 2); top: 50%; display: block;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
+}
+.esp-izq { transform: translate(calc(var(--esp-corrido) * -1), -50%) rotate(calc(var(--esp-giro) * -1)); }
+.esp-der { transform: translate(var(--esp-corrido), -50%) rotate(var(--esp-giro)); }
+.espatula { display: block; width: var(--esp-ancho); height: auto; }
+.intro[data-etapa='salida'] .esp-izq { animation: esp-izq 1250ms both; }
+.intro[data-etapa='salida'] .esp-der { animation: esp-der 1250ms both; }
 .intro[data-etapa='salida'] .parrillero img { animation: logo-entra 520ms var(--ease-out) both; }
+/* Salen desde atrás del logo, se abren, vuelven a chocar las paletas arriba y rebotan a su lugar. */
 @keyframes esp-izq {
-  0% { opacity: 0; transform: translateX(16px) rotate(-22deg); }
-  32% { opacity: 1; transform: translateX(0) rotate(-14deg); }
-  58% { transform: translateX(0) rotate(-22deg); }
-  100% { opacity: 1; transform: translateX(0) rotate(-14deg); }
+  0% { opacity: 0; transform: translate(0, -50%) rotate(0deg); animation-timing-function: var(--ease-out); }
+  32% { opacity: 1; transform: translate(calc(var(--esp-corrido) * -1), -50%) rotate(calc(var(--esp-giro) * -1 - 6deg)); animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.5); }
+  50% { transform: translate(calc(var(--esp-corrido) * -1), -50%) rotate(14deg); animation-timing-function: var(--ease-out); }
+  100% { opacity: 1; transform: translate(calc(var(--esp-corrido) * -1), -50%) rotate(calc(var(--esp-giro) * -1)); }
 }
 @keyframes esp-der {
-  0% { opacity: 0; transform: translateX(-16px) rotate(22deg); }
-  32% { opacity: 1; transform: translateX(0) rotate(14deg); }
-  58% { transform: translateX(0) rotate(22deg); }
-  100% { opacity: 1; transform: translateX(0) rotate(14deg); }
+  0% { opacity: 0; transform: translate(0, -50%) rotate(0deg); animation-timing-function: var(--ease-out); }
+  32% { opacity: 1; transform: translate(var(--esp-corrido), -50%) rotate(calc(var(--esp-giro) + 6deg)); animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.5); }
+  50% { transform: translate(var(--esp-corrido), -50%) rotate(-14deg); animation-timing-function: var(--ease-out); }
+  100% { opacity: 1; transform: translate(var(--esp-corrido), -50%) rotate(var(--esp-giro)); }
 }
 .barra-carga { display: block; width: 148px; height: 2px; overflow: hidden; background: var(--linea-oscuro); border-radius: 2px; }
 .barra-carga i { display: block; height: 100%; background: var(--dorado); transform: scaleX(0); transform-origin: left; }
@@ -1013,9 +1043,7 @@ html.cajon-abierto .wa-flota { right: calc(32px + var(--ancho-scroll, 0px)); }
   .idioma-nota { text-align: left; font-size: 13px; }
   .pie-ba { display: inline; }
   .idioma-pie { margin-top: 34px; padding-top: 0; }
-  .parrillero img { width: 136px; height: 136px; }
-  .espatula { width: 42px; }
-  .parrillero { gap: 22px; }
+  .parrillero { --logo: 136px; }
 
   .dos { grid-template-columns: 1fr 1fr; gap: 64px; }
   .cards { grid-template-columns: repeat(3, 1fr); }
@@ -1070,7 +1098,7 @@ html.cajon-abierto .wa-flota { right: calc(32px + var(--ancho-scroll, 0px)); }
   .cartel-lugar { flex: none; }
   .fz-cartel { --fz-scale: 1; }
   .lang { display: block; }
-  .lflag, .llamar { display: none; }
+  .lang-movil, .lflag, .llamar { display: none; }
   .cabecera-acciones { display: flex; gap: 10px; }
 
   /* WhatsApp flotante: cerrado se ve solo el círculo; al pasar el mouse se despliega el mensaje.
@@ -1115,6 +1143,8 @@ html.cajon-abierto .wa-flota { right: calc(32px + var(--ancho-scroll, 0px)); }
   .hero-p { max-width: 520px; font-size: 19px; line-height: 1.65; }
   .hero-foto { display: flex; min-height: 520px; }
   .hero-foto .ph { flex: 1; }
+  .hero.hero-con-foto { background: linear-gradient(90deg, rgba(14, 10, 7, 0.94) 0%, rgba(14, 10, 7, 0.72) 45%, rgba(14, 10, 7, 0.35) 100%), url('../img/galeria/exterior.jpg') center / cover no-repeat, #0E0A07; }
+  .hero-foto:has(.polaroid) { align-items: center; justify-content: center; }
   .ph-marco { border-radius: 28px; border: 1px solid #4A4036; }
   .hero-btn { width: auto; justify-content: space-between; padding: 0 8px 0 26px; background: var(--dorado); color: var(--carbon); border: 0; }
   .hero-btn .ar { display: flex; }
@@ -1242,3 +1272,39 @@ html.cajon-abierto .wa-flota { right: calc(32px + var(--ancho-scroll, 0px)); }
   .wa-flota-pastilla { transition: none !important; }
   .wa-flota-t { transform: none !important; }
 }
+
+/* ---------- Fotos reales: ajustes por tamaño ----------
+   Celular y tablet: la polaroid del salón se muestra arriba del título (antes solo en computadora). */
+@media (max-width: 1179px) {
+  .hero-in { display: flex; flex-direction: column; }
+  .hero-foto:has(.polaroid) { display: flex; justify-content: center; margin-top: 28px; }
+  .hero-foto:has(.polaroid) { justify-content: flex-start; margin-top: 24px; }
+  .hero-foto .polaroid { width: min(58vw, 260px); padding: 8px 8px 30px; transform: none; }
+}
+/* Desde tablet la tarjeta del carrusel es apaisada y las fotos son verticales:
+   la foto ocupa la mitad derecha completa (sin el zoom del recorte) y el texto va a la izquierda. */
+@media (min-width: 640px) {
+  .vslide-plato .vslide-foto { left: auto; width: 46%; }
+  .vslide-plato .vslide-foto::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #0E0A07 0%, rgba(14, 10, 7, 0) 22%); }
+  .vslide-plato .vslide-pie { width: 54%; align-self: center; padding: 32px 28px 32px 32px; background: none; }
+}
+@media (min-width: 1180px) {
+  .vslide-plato .vslide-pie { padding: 40px 32px 40px 48px; }
+}
+/* Tablet en una columna: el marco de historia era muy bajo y recortaba mucho la foto. */
+@media (min-width: 640px) and (max-width: 899px) {
+  .historia-foto { min-height: 460px; }
+}
+/* Celular: la foto arriba y el texto abajo, para que el texto no tape el plato. */
+@media (max-width: 639px) {
+  .vslide-plato { flex-direction: column; }
+  .vslide-plato .vslide-foto { position: relative; inset: auto; z-index: 0; display: block; flex: 1 1 auto; min-height: 220px; }
+  .vslide-plato .vslide-foto img { position: absolute; inset: 0; }
+  .vslide-plato .vslide-foto::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #0E0A07 0%, rgba(14, 10, 7, 0) 28%); }
+  .vslide-plato .vslide-pie { padding: 4px 22px 24px; background: none; }
+}
+/* Historia (pestaña): la foto es cuadrada, así que el marco también: se ve entera, sin zoom. */
+.historia-foto-cuadrada { min-height: 0; max-width: 560px; }
+.historia-foto-cuadrada .ph { position: relative; inset: auto; margin-right: 44px; aspect-ratio: 1; }
+@media (min-width: 640px) and (max-width: 899px) { .historia-foto-cuadrada { min-height: 0; } }
+@media (min-width: 1180px) { .historia-foto-cuadrada { min-height: 0; } .historia-foto-cuadrada .ph { margin-right: 60px; } }
