@@ -930,6 +930,11 @@ html.cajon-abierto .wa-flota { right: calc(32px + var(--ancho-scroll, 0px)); }
 .idioma-marca img { width: 62px; height: 62px; }
 .idioma-lema { display: none; font: 700 11px var(--sans); letter-spacing: 0.2em; text-transform: uppercase; }
 .idioma-tag { position: absolute; top: 18px; right: 18px; }
+/* Fondo real: el exterior de Fredy de noche, oscurecido arriba (logo) y abajo (título). */
+.idioma-foto {
+  background: linear-gradient(0deg, rgba(14, 10, 7, 0.94) 0%, rgba(14, 10, 7, 0.55) 45%, rgba(14, 10, 7, 0.45) 75%, rgba(14, 10, 7, 0.75) 100%),
+    url('../img/galeria/exterior.jpg') center 80% / cover no-repeat, #0E0A07;
+}
 .idioma-txt { display: flex; flex-direction: column; gap: 10px; }
 .idioma-t { font: 500 38px/1.05 var(--serif); }
 .idioma-b { font-size: 15px; font-weight: 500; }
@@ -1308,3 +1313,14 @@ html.cajon-abierto .wa-flota { right: calc(32px + var(--ancho-scroll, 0px)); }
 .historia-foto-cuadrada .ph { position: relative; inset: auto; margin-right: 44px; aspect-ratio: 1; }
 @media (min-width: 640px) and (max-width: 899px) { .historia-foto-cuadrada { min-height: 0; } }
 @media (min-width: 1180px) { .historia-foto-cuadrada { min-height: 0; } .historia-foto-cuadrada .ph { margin-right: 60px; } }
+/* Pantalla de idioma en tablet horizontal y computadora: encuadre corrido para que el cartel
+   luminoso del local no quede detrás del título, y más oscuro del lado del texto. */
+@media (min-width: 900px) {
+  .idioma-foto {
+    background: linear-gradient(90deg, rgba(14, 10, 7, 0.55) 0%, rgba(14, 10, 7, 0.1) 70%),
+      linear-gradient(0deg, rgba(14, 10, 7, 0.94) 0%, rgba(14, 10, 7, 0.5) 50%, rgba(14, 10, 7, 0.35) 75%, rgba(14, 10, 7, 0.7) 100%),
+      url('../img/galeria/exterior.jpg') 68% center / cover no-repeat, #0E0A07;
+  }
+}
+/* Tablet vertical: la franja es más ancha y baja; se encuadran las luces y las mesas. */
+@media (min-width: 640px) and (max-width: 899px) { .idioma-foto { background-position: 0 0, center 55%; } }
