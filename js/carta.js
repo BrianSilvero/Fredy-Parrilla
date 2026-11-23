@@ -160,7 +160,7 @@ function iniciarCarta() {
   if (botonWa && iconoWa && 'ResizeObserver' in window) {
     new ResizeObserver(() => {
       const raiz = document.documentElement.style;
-      raiz.setProperty('--ancho-wa', `${iconoWa.offsetWidth + 16}px`);
+      raiz.setProperty('--ancho-wa', `${iconoWa.offsetWidth + 20}px`);
       raiz.setProperty('--ancho-wa-abierto', `${botonWa.offsetWidth}px`);
     }).observe(botonWa);
   }

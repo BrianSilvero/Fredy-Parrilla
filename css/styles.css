@@ -1117,17 +1117,27 @@ html.cajon-abierto .wa-flota { right: calc(32px + var(--ancho-scroll, 0px)); }
       drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
   }
   .wa-flota:focus-visible { outline: none; }
+  /* Pastilla de madera: cerrada, el borde de madera queda como un aro alrededor del círculo verde.
+     Las sombras internas le dan relieve de tabla (canto oscuro y luz arriba). */
   .wa-flota-pastilla {
-    display: flex; align-items: center; gap: 12px; padding: 8px 8px 8px 20px; border-radius: 999px;
-    background: var(--blanco); font: 600 15px var(--sans); white-space: nowrap; pointer-events: auto;
-    clip-path: inset(0 0 0 calc(100% - 64px) round 999px);
+    display: flex; align-items: center; gap: 14px; padding: 10px 10px 10px 24px; border-radius: 999px;
+    background: #8A5A32 url('../img/madera.jpg') center / cover no-repeat;
+    box-shadow: inset 0 0 0 1px rgba(40, 20, 6, 0.55), inset 0 2px 2px rgba(255, 214, 160, 0.25), inset 0 -4px 8px rgba(40, 20, 6, 0.35);
+    font: 700 16px var(--sans); white-space: nowrap; pointer-events: auto;
+    clip-path: inset(0 0 0 calc(100% - 68px) round 999px);
     transition: clip-path 200ms var(--ease-out), transform 160ms var(--ease-out);
   }
-  .wa-flota-t { opacity: 0; transform: translateX(8px); transition: opacity 140ms ease, transform 200ms var(--ease-out); }
+  /* Texto tallado en la madera: marrón oscuro con un filo de luz abajo. */
+  .wa-flota-t {
+    color: #2A1608; text-shadow: 0 1px 0 rgba(255, 224, 180, 0.4), 0 -1px 0 rgba(20, 8, 0, 0.35);
+    opacity: 0; transform: translateX(8px); transition: opacity 140ms ease, transform 200ms var(--ease-out);
+  }
   .wa-flota:active .wa-flota-pastilla { transform: scale(0.97); }
   .wa-flota:focus-visible .wa-flota-pastilla { clip-path: inset(0 round 999px); outline: 2px solid var(--dorado); outline-offset: -3px; }
   .wa-flota:focus-visible .wa-flota-t { opacity: 1; transform: none; }
-  .wa-flota-ic { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: var(--verde); color: var(--blanco); }
+  .wa-flota-ic { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: var(--verde); color: var(--blanco);
+    box-shadow: 0 0 0 1px rgba(30, 14, 4, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.3); }
+  .wa-flota-ic svg { width: 28px; height: 28px; stroke-width: 2; }
 
   .wrap { padding-inline: 48px; }
   .bloque { padding: 120px 0; }
@@ -1180,9 +1190,9 @@ html.cajon-abierto .wa-flota { right: calc(32px + var(--ancho-scroll, 0px)); }
   .plato-nom { font-size: 25px; }
 
   /* A la izquierda del círculo de WhatsApp, con 20px de aire. --ancho-wa lo mide carta.js. */
-  .carta-acceso { bottom: 32px; left: auto; right: calc(32px + var(--ancho-wa, 64px) + 20px); transform: translateY(16px); }
+  .carta-acceso { bottom: 32px; left: auto; right: calc(32px + var(--ancho-wa, 68px) + 20px); transform: translateY(16px); }
   .carta-acceso.visible { transform: none; }
-  body:has(.wa-flota:focus-visible) .carta-acceso.visible { transform: translateX(calc(var(--ancho-wa, 64px) - var(--ancho-wa-abierto, 300px))); }
+  body:has(.wa-flota:focus-visible) .carta-acceso.visible { transform: translateX(calc(var(--ancho-wa, 68px) - var(--ancho-wa-abierto, 300px))); }
   .frase-t { font-size: 52px; }
 }
 
@@ -1192,7 +1202,7 @@ html.cajon-abierto .wa-flota { right: calc(32px + var(--ancho-scroll, 0px)); }
   .wa-flota:hover .wa-flota-pastilla { clip-path: inset(0 round 999px); transition-duration: 260ms, 160ms; }
   .wa-flota:hover .wa-flota-t { opacity: 1; transform: none; transition-duration: 200ms, 260ms; transition-delay: 40ms; }
   /* En la carta, la bolsa se corre a la izquierda para dejarle lugar al mensaje. */
-  body:has(.wa-flota:hover) .carta-acceso.visible { transform: translateX(calc(var(--ancho-wa, 64px) - var(--ancho-wa-abierto, 300px))); }
+  body:has(.wa-flota:hover) .carta-acceso.visible { transform: translateX(calc(var(--ancho-wa, 68px) - var(--ancho-wa-abierto, 300px))); }
 
   .menu-show:hover .menu-mic { opacity: 1; transform: translate(0, -50%); }
   .menu-show:hover .onda { animation: onda-late 900ms ease-in-out infinite; }
